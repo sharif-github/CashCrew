@@ -12,7 +12,6 @@ import {
   Alert,
   SafeAreaView,
 } from "react-native";
-import HomeScreen from "./src/Screens/HomeScreen";
 import LoginScreen from "./src/Screens/LoginScreen";
 import SignUp from "./src/Screens/SignUp";
 
