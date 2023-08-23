@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import LoginScreen from "./src/Screens/LoginScreen";
 import SignUp from "./src/Screens/SignUp";
+import UpdateInfo from "./src/Screens/UpdateInfo";
 
 
 const stack = createStackNavigator();
@@ -28,6 +29,7 @@ export default function App() {
           {/* <stack.Screen name="Home" component={HomeScreen} /> */}
           <stack.Screen name="LoginScreen" component={LoginScreen} />
           <stack.Screen name="SignUp" component={SignUp} />
+          <stack.Screen name="UpdateInfo" component={UpdateInfo} />
         </stack.Navigator>
       </NavigationContainer>
     </View>
