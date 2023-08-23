@@ -5,8 +5,20 @@ import { Button, View, TextInput, Image, StyleSheet, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const LoginScreen=(props:any)=>{
-    const navigation = useNavigation();
 
+    const [email, setEmail] = useState<string>(''); 
+    const handleOnChangeEmail = (text: string) => {
+        setEmail(text);
+        console.log(email);
+    };
+
+    const [password, setPassword] = useState<string>(''); 
+    const handleOnChangePassword = (text: string) => {
+        setPassword(text);
+    };
+
+    const navigation = useNavigation();
+    
     const handleSignUpButton=()=>{
         navigation.navigate('SignUp');
     }
@@ -24,11 +36,11 @@ const LoginScreen=(props:any)=>{
             <View style={styles.body}>
                 <View style={styles.emailPassContainer}>
                     <Text style={styles.emailPassTextStyle}>Email:</Text>
-                    <TextInput style={[styles.input, { marginBottom: 20 }]} placeholder=""></TextInput>
+                    <TextInput style={[styles.input, { marginBottom: 20 }]} value={email} onChangeText={handleOnChangeEmail} placeholder=""></TextInput>
                 </View>
                 <View style={styles.emailPassContainer}>
                     <Text style={styles.emailPassTextStyle}>Password:</Text>
-                    <TextInput style={[styles.input]} placeholder=""></TextInput>
+                    <TextInput style={[styles.input]} secureTextEntry={true} value={password} onChangeText={handleOnChangePassword} placeholder=""></TextInput>
                     <TouchableOpacity style={{alignItems: 'flex-end'}}>
                         <Text style={{fontSize: 17}} onPress={handleForgotPasswordButton}>Forgot Password?</Text>
                     </TouchableOpacity>
@@ -76,6 +88,7 @@ const styles=StyleSheet.create({
         // paddingHorizontal: 10,
         backgroundColor: 'white',
         borderRadius: 10,
+        fontSize: 20,
     },
     emailPassContainer:{
         // borderWidth: 1,
