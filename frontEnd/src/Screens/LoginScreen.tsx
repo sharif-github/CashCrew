@@ -22,7 +22,9 @@ const LoginScreen=(props:any)=>{
     const handleSignUpButton=()=>{
         navigation.navigate('SignUp');
     }
-
+    const handleLoginButton=()=>{
+        navigation.navigate('TourListScreen');
+    }
     const handleForgotPasswordButton=()=>{
         navigation.navigate('UpdateInfo');
     }
@@ -46,7 +48,7 @@ const LoginScreen=(props:any)=>{
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.buttonStyle}>
-                        <Text style={{fontSize: 17, color: 'white'}} >Login</Text>
+                        <Text style={{fontSize: 17, color: 'white'}} onPress={handleLoginButton}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonStyle}>
                         <Text style={{fontSize: 17, color: 'white'}} onPress={handleSignUpButton}>Sign UP</Text>
