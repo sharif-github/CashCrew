@@ -15,6 +15,8 @@ import {
 import LoginScreen from "./src/Screens/LoginScreen";
 import SignUp from "./src/Screens/SignUp";
 import UpdateInfo from "./src/Screens/UpdateInfo";
+import TourlistScreen from "./src/Screens/TourlistScreen";
+import TourExpenselistScreen from "./src/Screens/TourExpenseList";
 
 
 const stack = createStackNavigator();
@@ -30,6 +32,8 @@ export default function App() {
           <stack.Screen name="LoginScreen" component={LoginScreen} />
           <stack.Screen name="SignUp" component={SignUp} />
           <stack.Screen name="UpdateInfo" component={UpdateInfo} />
+          <stack.Screen name="TourListScreen" component={TourlistScreen}/>
+          <stack.Screen name="TourExpenselistScreen" component={TourExpenselistScreen}/>
         </stack.Navigator>
       </NavigationContainer>
     </View>
