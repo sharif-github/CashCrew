@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { useNavigation } from "@react-navigation/native";
 
 const Card = ({ title }) => {
   return (
@@ -33,11 +34,18 @@ const Card = ({ title }) => {
 };
 
 const TourExpenselistScreen = (props) => {
+    const navigation = useNavigation(); 
   const data = [
     { id: "1", title: "UIU to NB 1" },
     { id: "2", title: "UIU to NB 2" },
     { id: "3", title: "UIU to NB 3" },
   ];
+   const handleSummaryBtn =()=>{
+    navigation.navigate("SummaryScreen");
+   }
+   const handleAddFriendBtn =()=>{
+    navigation.navigate("AddFriendScreen");
+   }
 
   return (
     <ImageBackground
@@ -45,7 +53,7 @@ const TourExpenselistScreen = (props) => {
       source={require("../../assets/public/images/bg_crop.jpg")}
     >
       <TouchableOpacity style={styles.buttonStyle}>
-        <Text style={{ fontSize: 17, color: "white" }}>Add Friend</Text>
+        <Text style={{ fontSize: 17, color: "white" }} onPress={handleAddFriendBtn}>Add Friend</Text>
       </TouchableOpacity>
       <FlatList
         data={data}
@@ -53,7 +61,7 @@ const TourExpenselistScreen = (props) => {
         renderItem={({ item }) => <Card title={item.title} />}
       />
 
-      <TouchableOpacity style={styles.buttonStyle2}>
+      <TouchableOpacity style={styles.buttonStyle2} onPress={handleSummaryBtn}>
         <Text style={{ fontSize: 17, color: "white" }}>See Summary</Text>
       </TouchableOpacity>
       <View style={styles.inputContainer}>
@@ -86,6 +94,7 @@ const styles = StyleSheet.create({
   card: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems:"center",
     flexDirection: "row",
     backgroundColor: "white",
     margin: 10,
