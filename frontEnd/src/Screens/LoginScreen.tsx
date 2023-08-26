@@ -25,23 +25,17 @@ const LoginScreen = (props: any) => {
   };
   const handleLoginButton = () => {
     console.log("working");
-    const apiUrl = "http://localhost:3000/users/login";
+    const apiUrl = "http://192.168.0.189:3000/users/login";
     const data = {
       username: username,
       password: password,
     };
     console.log(data);
     axios
-      .post(apiUrl, data, {
-        headers: {
-          "Content-Type": "application/json",
-          
-          // Add any other headers here as needed
-        },
-      })
+      .post(apiUrl, data)
       .then((response) => {
-        
-        if (response.status === 200) {
+        console.log(response.data.message)
+        if (response.data.message === "Login successful") {
           const responseData = response.data;
           // Show the response message in a toast
           Toast.show({
