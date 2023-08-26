@@ -22,8 +22,9 @@ export class UsersController {
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
     const { username, password } = loginDto;
+    console.log(username)
     const user = await this.usersService.findOne(username);
-    
+    console.log(user)
     if (!user || user.password !== password) {
       return { message: 'Invalid credentials' };
     }
