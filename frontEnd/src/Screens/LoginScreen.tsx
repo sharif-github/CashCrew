@@ -36,7 +36,7 @@ const LoginScreen = (props: any) => {
       .then((response) => {
         console.log(response.data.message)
         if (response.data.message === "Login successful") {
-          const responseData = response.data;
+          const responseData = response.data;+
           // Show the response message in a toast
           Toast.show({
             type: "success",
